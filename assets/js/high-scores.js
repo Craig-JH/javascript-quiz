@@ -2,7 +2,7 @@ var scoreContainerNav = document.querySelector("#scoreContainerNav");
 var scoreListNav = document.querySelector("#scoreListNav");
 
 
-// Show high score from nav
+// show high score from nav
 window.onload = function() {
     let savedScores = localStorage.getItem("highScores");
     savedScores = JSON.parse(savedScores);
@@ -24,7 +24,7 @@ window.onload = function() {
     }
 }
 
-// Create elements on highscore page
+// create elements on highscore page
 var createHighScorePageEl = function(scoreObject) {
 
     var scoreItemEl = document.createElement("li");

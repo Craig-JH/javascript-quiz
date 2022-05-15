@@ -1,28 +1,10 @@
-/* @font-face {
-    font-family: "ThinPixel7";
-    src: url("../assets/ThinPixel7.woff2") format("woff2"),
-         url("../assets/ThinPixel7.woff") format("woff");
-} */
-
-/* :root {
-    --pink: #F69696;
-    --yellow: #EFD29E;
-    --green: #AAE5D0;
-    --blue: #BEEBF4;
-    --dark: #322148;
-    --light: #C8BCD8;
-} */
-
-*:focus {
-    outline: 2px solid var(--light);
-}
 
 body {
     background-color:#9dc5f3;
     font-family: "ThinPixel7";
 }
 
-/** Main styling **/ 
+/** home page **/ 
 nav {
     display: flex;
     justify-content: space-between;
@@ -49,6 +31,14 @@ h1 {
     margin: 24px 8px;
 }
 
+#initialsContainer h1 {
+    color:  #1fef3b;
+    font-size: 2.5em;
+    line-height: 0.7em;
+    margin: 24px 8px;
+}
+
+
 h2 {
     color:  #171716;
     font-size: 2em;
@@ -58,19 +48,18 @@ h2 {
 #quizTitle {
     color: #1fef3b;
     font-size: 4em;
-    line-height: 0.7em;
+    line-height: 0.5em;
     margin: 24px 8px;
 }
 
 p, a {
-    font-size: 2.5em;
+    font-size: 2.0em;
     line-height: 0em;
 }
 
 a {
-    color: var(--blue);
+    color: #6e19f7;
     text-decoration-color: transparent;
-    text-decoration-thickness: 2px;
     margin: 40px 0px;
 }
 
@@ -84,18 +73,12 @@ a:focus {
 }
 
 nav {
-    color: var(--blue);
     padding: 0px 24px;
 }
 
 ul {
     padding: 0px;
 }
-
-/* li {
-    color: var(--light);
-    list-style-type: none;
-} */
 
 .quiz-container {
     display: flex;
@@ -106,8 +89,8 @@ ul {
 
 button {
     transition: all 200ms;
-    font-family: "ThinPixel7";
-    font-size: 2.5em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2em;
     border-radius: 0px;
     background-color:  #f0faf1;
     margin: 16px 0px;
@@ -118,6 +101,7 @@ button {
     flex-basis: content;
     align-self: center;
     border: 5px solid  #1fef3b;
+    border-radius: 15px;
     color: #0e7708;
     width: 100%;
 }
@@ -132,7 +116,7 @@ button {
     text-align: center;
 }
 
-/** Question styling **/ 
+/** questions **/ 
 .answer-container {
     display: flex;
     flex-direction: row;
@@ -169,7 +153,7 @@ button {
     cursor: pointer;
 }
 
-/** High score form styling **/
+/** high score input **/
 input[type=text] {
     padding: 0px 12px 4px 12px;
     border: 2px solid var(--light);
@@ -196,7 +180,7 @@ form h2 {
     margin: 16px 0px 8px 0px;
 }
 
-/* High score styling */
+/* high score */
 .score-container {
     margin: 0 auto;
     display: flex;
@@ -226,8 +210,8 @@ form h2 {
     display: none;
 }
 
-/** Media queries **/
-@media screen and (min-width: 700px) {
+/** media queries **/
+@media screen and (min-width: 480px) {
     .primary-button {
         width: auto;
     }

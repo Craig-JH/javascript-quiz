@@ -1,19 +1,20 @@
+// list variables
 var navigation = document.querySelector("#navigation");
 var startButton = document.querySelector("#startBtn");
-var counter = document.querySelector("#counter");
 var quizContainer = document.querySelector("#quizContainer");
 var quizTitle = document.querySelector("#quizTitle");
 var quizIntro = document.querySelector("#quizIntro");
 var answerContainer = document.querySelector("#answerContainer");
 var quizQuestion = document.querySelector("#quizQuestion");
 var quizResult =  document.querySelector("#quizResult");
+var counter = document.querySelector("#counter");
 
 var initialsContainer = document.querySelector("#initialsContainer");
-var finalScore = document.querySelector("#finalScore");
 var submitButton = document.querySelector("#submitBtn");
 var initialsInput = document.querySelector("#initials");
 var scoreContainer = document.querySelector("#scoreContainer");
 var scoreList = document.querySelector("#scoreList");
+var finalScore = document.querySelector("#finalScore");
 var showHighScore = document.querySelector("#showHighScore");
 
 var optionA = document.querySelector("#optionA");
@@ -27,6 +28,7 @@ let seconds = 60;
 let countDownTimer;
 let highScores = [];
 
+// quiz questions
 var questions = [
     {
         question: "What does window.alert() return?",
@@ -84,7 +86,7 @@ var changeTimer = function() {
     countDownTimer = setInterval(timer, 1000);
 }
 
-// Create timer
+// create timer
 var timer = function() {
     seconds--;
 
@@ -96,9 +98,9 @@ var timer = function() {
     counter.textContent = `Time: ${seconds}`;
 }
 
-// Create question elements and set their text
+// create question elements and set their text
 var createQuestions = function(currentQuestionChoices) {
-    // Set the text inside the questions
+    // set the text inside the questions
     optionA.textContent = currentQuestionChoices.a;
     optionB.textContent = currentQuestionChoices.b;
     optionC.textContent = currentQuestionChoices.c;
@@ -110,36 +112,36 @@ var createQuestions = function(currentQuestionChoices) {
     optionD.onclick = selectAnswerHandler;
 };
 
-// Go through each of the answer options and return the correct answer
+// go through each of the answer options and return the correct answer
 var findCorrectAnswer = function() {
     var currentQuestionChoices = questions[currentNum].options;
     quizQuestion.textContent = questions[currentNum].question;
     createQuestions(currentQuestionChoices);
 
-    // Get the key that matches the value of the answer
+    // get the key that matches the value of the answer
     var answerKey = function(answer) {
         return answer === questions[currentNum].answer;
     }
 
-    // Get an array of the options' keys and find the first one that matches the answer's value
+    // get an array of the options' keys and find the first one that matches the answer's value
     var findAnswer = Object.keys(questions[currentNum].options).find(answerKey);
     var answer = questions[currentNum].options[findAnswer];
 
     return answer;
 }
 
-// Check their answer and show correct or incorrect message
+// check their answer and show correct or incorrect message
 var selectAnswerHandler = function(event) {
     setTimeout(function() {
         quizResult.classList.add("fade");
-    }, 800);
+    }, 900);
 
     if (event.target.textContent === findCorrectAnswer()) {
-        quizResult.textContent = "You are correct!";
-        quizResult.style.color = "#05420d";
+        quizResult.textContent = "Correct!";
+        quizResult.style.color = "#249233";
         score+=10;
     } else {
-        quizResult.textContent = "Sorry, you are incorrect!";
+        quizResult.textContent = "Incorrect!";
         quizResult.style.color = "#fd0b0b";
         seconds-=10;
     }
@@ -154,7 +156,7 @@ var selectAnswerHandler = function(event) {
     }
 }
 
-// Show the high score
+// show the high score
 var highScoreInitials = function() {
     answerContainer.classList.add("hidden");
     initialsContainer.classList.remove("hidden");
@@ -162,7 +164,7 @@ var highScoreInitials = function() {
     clearInterval(countDownTimer);
 }
 
-// Create the elements
+// create the elements
 var createHighScoreEl = function(scoreObject) {
 
     var scoreItemEl = document.createElement("li");
@@ -179,19 +181,19 @@ var createHighScoreEl = function(scoreObject) {
     scoreItemEl.appendChild(scoreInitialsEl);
     scoreItemEl.appendChild(scoreNumberEl);
 
-    // Add high score to array
+    // add high score to array
     highScores.push(scoreObject);
 
-    // Save scores to local storage
+    // save scores to local storage
     saveScores();
 }
 
-// Save to local storage
+// save to local storage
 var saveScores = function() {
     localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
-// Loads scores from local storage
+// gets scores from local storage
 var loadScores = function() {
     let savedScores = localStorage.getItem("highScores");
 
@@ -206,7 +208,7 @@ var loadScores = function() {
     });
 }
 
-// Handle form submission
+// handle form submission
 var highScoreHandler = function() {
     var initialsValue = initialsInput.value;
 
@@ -230,7 +232,7 @@ var highScoreHandler = function() {
     }
 }
 
-// Reset the quiz
+// reset quiz
 var reset = function() {
     score = 0;
     currentNum = 0;
@@ -245,7 +247,7 @@ var reset = function() {
     counter.textContent = "Time: 0";
 }
 
-// Submit high score
+// submit high score
 submitButton.onclick = function(e) {
     // Show alert if the input is empty
     if (initialsInput.value === '') {
@@ -259,7 +261,7 @@ submitButton.onclick = function(e) {
     initialsInput.value = '';
 }
 
-// Start the quiz
+// start the quiz
 startButton.onclick = function() {
     changeTimer();
     answerContainer.classList.remove("hidden");
