@@ -1,5 +1,5 @@
-const scoreContainerNav = document.querySelector("#scoreContainerNav");
-const scoreListNav = document.querySelector("#scoreListNav");
+var scoreContainerNav = document.querySelector("#scoreContainerNav");
+var scoreListNav = document.querySelector("#scoreListNav");
 
 
 // Show high score from nav
@@ -13,7 +13,7 @@ window.onload = function() {
         createHighScorePageEl(score);
     });
 
-    const backButton = document.createElement("button");
+    var backButton = document.createElement("button");
     backButton.textContent = "Go back";
     backButton.classList.add("primary-button");
     scoreContainerNav.appendChild(backButton);
@@ -25,16 +25,16 @@ window.onload = function() {
 }
 
 // Create elements on highscore page
-const createHighScorePageEl = function(scoreObject) {
+var createHighScorePageEl = function(scoreObject) {
 
-    const scoreItemEl = document.createElement("li");
+    var scoreItemEl = document.createElement("li");
     scoreItemEl.className = "score-item";
     scoreItemEl.className = "score-list-item";
 
-    const scoreInitialsEl = document.createElement("div");
+    var scoreInitialsEl = document.createElement("div");
     scoreInitialsEl.innerHTML = "<p>" + scoreObject.name + "</p>";
 
-    const scoreNumberEl = document.createElement("div");
+    var scoreNumberEl = document.createElement("div");
     scoreNumberEl.innerHTML = "<p>" + scoreObject.score + "</p>";
 
     scoreListNav.appendChild(scoreItemEl);
