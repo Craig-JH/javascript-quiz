@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>code-quiz</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- FontAweome CDN Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Top nav elements -->
+    <nav id="navigation"> 
+        <a id="showHighScore" href="high-scores.html">View high scores</a>
+        <p id="counter">Time: 0</p>
+    </nav>
+
+    <div id="quizContainer" class="quiz-container">
+        <!-- Reusable page element -->
+        <h1 id="quizTitle" class="quiz-title center">Code Quiz</h1> 
+
+        <!-- Starter page elements -->
+        <h2 id="quizIntro" class="quiz-subtitle center">Answer the following code-related questions within the time limit. Ready? Let's go!</h2>
+        <button id="startBtn" class="primary-button">Start</button>  
+        
+        <!-- Quiz elements -->
+        <div id="answerContainer" class="answer-container hidden">
+            <div class="quiz-question">
+                <h1 id="quizQuestion" class="quiz-subtitle">The question goes here</h1>
+                <button class="answer-button" id="optionA"></button>
+                <button class="answer-button" id="optionB"></button>
+                <button class="answer-button" id="optionC"></button>
+                <button class="answer-button" id="optionD"></button>
+            </div>
+            <div class="quiz-result">
+                <h2 class="hidden" id="quizResult"></h2>
+            </div>
+        </div>
+
+        <!-- High score input -->
+        <div id="initialsContainer" class="initials-container hidden">
+            <h1>All done!</h1>
+            <h2 id="finalScore"></h2>
+            <form>
+                <h2>
+                    <label for="initials">Enter your initials</label>
+                </h2>
+                <input type="text" placeholder="Initials" id="initials" name="initials" class="initials-input">
+                <button id="submitBtn" class="primary-button">Submit</button>
+            </form>
+        </div>
+
+        <!-- High scores -->
+        <div id="scoreContainer" class="score-container hidden">
+            <h1>High scores</h1>
+            <ul id="scoreList">
+            <!-- Items will be added here -->
+            </ul>
+
+        </div>
+    </div>
+
+    <script src="./js/main.js" async defer></script>
+</body>
+</html>
