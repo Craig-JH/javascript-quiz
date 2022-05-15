@@ -1,24 +1,24 @@
-@font-face {
+/* @font-face {
     font-family: "ThinPixel7";
     src: url("../assets/ThinPixel7.woff2") format("woff2"),
          url("../assets/ThinPixel7.woff") format("woff");
-}
+} */
 
-:root {
+/* :root {
     --pink: #F69696;
     --yellow: #EFD29E;
     --green: #AAE5D0;
     --blue: #BEEBF4;
     --dark: #322148;
     --light: #C8BCD8;
-}
+} */
 
 *:focus {
     outline: 2px solid var(--light);
 }
 
 body {
-    background-color: var(--dark);
+    background-color:#9dc5f3;
     font-family: "ThinPixel7";
 }
 
@@ -29,15 +29,22 @@ nav {
 }
 
 h1 {
-    color: var(--pink);
-    font-size: 7em;
+    color: #1fef3b;;
+    font-size: 4em;
+    line-height: 0.7em;
+    margin: 24px 8px;
+}
+
+h1 .quiz-subtitle {
+    color: #1fef3b;;
+    font-size: 2em;
     line-height: 0.7em;
     margin: 24px 8px;
 }
 
 h2 {
-    color: var(--yellow);
-    font-size: 3em;
+    color:  #171716;
+    font-size: 2em;
     line-height: 1em;
 }
 
@@ -54,7 +61,7 @@ a {
 }
 
 a:hover {
-    text-decoration-color: var(--blue);
+    text-decoration-color:  #6e19f7;
     transition: all 0.23s;
 }
 
@@ -88,7 +95,7 @@ button {
     font-family: "ThinPixel7";
     font-size: 2.5em;
     border-radius: 0px;
-    background-color: transparent;
+    background-color:  #f0faf1;
     margin: 16px 0px;
     padding: 0px 30px 6px 32px;
 }
@@ -96,14 +103,14 @@ button {
 .primary-button {
     flex-basis: content;
     align-self: center;
-    border: 2px solid var(--green);
-    color: var(--green);
+    border: 5px solid  #1fef3b;;
+    color: #0e7708;
     width: 100%;
 }
 
 .primary-button:hover {
-    background-color: var(--green);
-    color: var(--dark);
+    background-color:  #51d8f0;
+    color:  #fc0f0f;
     cursor: pointer;
 }
 

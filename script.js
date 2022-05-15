@@ -1,26 +1,25 @@
-// Quiz questions from https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS
-const navigation = document.querySelector("#navigation");
-const startButton = document.querySelector("#startBtn");
-const counter = document.querySelector("#counter");
-const quizContainer = document.querySelector("#quizContainer");
-const quizTitle = document.querySelector("#quizTitle");
-const quizIntro = document.querySelector("#quizIntro");
-const answerContainer = document.querySelector("#answerContainer");
-const quizQuestion = document.querySelector("#quizQuestion");
-const quizResult =  document.querySelector("#quizResult");
+var navigation = document.querySelector("#navigation");
+var startButton = document.querySelector("#startBtn");
+var counter = document.querySelector("#counter");
+var quizContainer = document.querySelector("#quizContainer");
+var quizTitle = document.querySelector("#quizTitle");
+var quizIntro = document.querySelector("#quizIntro");
+var answerContainer = document.querySelector("#answerContainer");
+var quizQuestion = document.querySelector("#quizQuestion");
+var quizResult =  document.querySelector("#quizResult");
 
-const initialsContainer = document.querySelector("#initialsContainer");
-const finalScore = document.querySelector("#finalScore");
-const submitButton = document.querySelector("#submitBtn");
-const initialsInput = document.querySelector("#initials");
-const scoreContainer = document.querySelector("#scoreContainer");
-const scoreList = document.querySelector("#scoreList");
-const showHighScore = document.querySelector("#showHighScore");
+var initialsContainer = document.querySelector("#initialsContainer");
+var finalScore = document.querySelector("#finalScore");
+var submitButton = document.querySelector("#submitBtn");
+var initialsInput = document.querySelector("#initials");
+var scoreContainer = document.querySelector("#scoreContainer");
+var scoreList = document.querySelector("#scoreList");
+var showHighScore = document.querySelector("#showHighScore");
 
-const optionA = document.querySelector("#optionA");
-const optionB = document.querySelector("#optionB");
-const optionC = document.querySelector("#optionC");
-const optionD = document.querySelector("#optionD");
+var optionA = document.querySelector("#optionA");
+var optionB = document.querySelector("#optionB");
+var optionC = document.querySelector("#optionC");
+var optionD = document.querySelector("#optionD");
 
 let score = 0;
 let currentNum = 0;
@@ -28,65 +27,65 @@ let seconds = 60;
 let countDownTimer;
 let highScores = [];
 
-const questions = [
+var questions = [
     {
-        question: "What HTML tags do you use to enclose your Javascript?",
+        question: "What does window.alert() return?",
         options: {
-            a: "<scripting>", 
-            b: "<script>", 
-            c: "<js>", 
-            d: "<javascript>"
+            a: "a. An alert that indicates a window is open", 
+            b: "b. An alert box appears with the message contained in the ()", 
+            c: "c. A prompt with ok and cancel choices", 
+            d: "d. You left a window open and a draft is coming in the house"
         },
         answer: "b"
     }, 
     {
-        question: 'How do you write "Hello World" in an alert box?',
+        question: "What are the two types of values in JavaScript?",
         options: {
-            a: "msg(\"Hello World\");", 
-            b: "msgBox(\"Hello World\");", 
-            c: "alert(\"Hello World\");", 
-            d: "alertBox(\"Hello World\");"
+            a: "a. Literals and Variables",
+            b: "b. Var and const",
+            c: "c. Fixed values and Variable values",
+            d: "d. None of the above"
         },
         answer: "c"
     }, 
     {
-        question: "How do you write an IF statement in Javascript?",
+        question: "How many data types are there in JavaScript?",
         options: {
-            a: "if i == 5 then", 
-            b: "if i = 5", 
-            c: "if (i == 5)", 
-            d: "if i = 5 then"
-        },
-        answer: "c"
-    },
-    {
-        question: "How does a FOR loop start?",
-        options: {
-            a: "for i = 1 to 5", 
-            b: "for (let i = 0; i <= 5; i++)", 
-            c: "for (let i = 0; i <= 5)", 
-            d: "for (i <= 5; i++)"
-        },
-        answer: "b"
-    },
-    {
-        question: "What is the correct way to write a JavaScript array?",
-        options: {
-            a: 'const colors = ["red", "green", "blue"]', 
-            b: 'const colors = (1:"red", 2:"green", 3:"blue")', 
-            c: 'const colors = "red", "green", "blue"', 
-            d: 'const colors = 1 = ("red"), 2 = ("green"), 3 = ("blue")'
+            a: "a. 3", 
+            b: "b. 4", 
+            c: "c. 7", 
+            d: "d. 2"
         },
         answer: "a"
+    },
+    {
+        question: "What are three branching conditional statements?",
+        options: {
+            a: "a. when, where, why", 
+            b: "b. if-then, if-than-else, else if", 
+            c: "c. that, this, equals", 
+            d: "d. none of the above"
+        },
+        answer: "b"
+    },
+    {
+        question: "What is the JavaScript <switch> statement used for?",
+        options: {
+            a: "a. to switch the order of statements in the .js file",
+            b: "b. to perform different actions based on different conditions",
+            c: "c. to switch whether a function runs or not",
+            d: "d. None of the above"
+        },
+        answer: "b"
     }
 ]
 
-const changeTimer = function() {
+var changeTimer = function() {
     countDownTimer = setInterval(timer, 1000);
 }
 
 // Create timer
-const timer = function() {
+var timer = function() {
     seconds--;
 
     if (seconds < 0) {
@@ -98,7 +97,7 @@ const timer = function() {
 }
 
 // Create question elements and set their text
-const createQuestions = function(currentQuestionChoices) {
+var createQuestions = function(currentQuestionChoices) {
     // Set the text inside the questions
     optionA.textContent = currentQuestionChoices.a;
     optionB.textContent = currentQuestionChoices.b;
@@ -112,25 +111,25 @@ const createQuestions = function(currentQuestionChoices) {
 };
 
 // Go through each of the answer options and return the correct answer
-const findCorrectAnswer = function() {
-    const currentQuestionChoices = questions[currentNum].options;
+var findCorrectAnswer = function() {
+    var currentQuestionChoices = questions[currentNum].options;
     quizQuestion.textContent = questions[currentNum].question;
     createQuestions(currentQuestionChoices);
 
     // Get the key that matches the value of the answer
-    const answerKey = function(answer) {
+    var answerKey = function(answer) {
         return answer === questions[currentNum].answer;
     }
 
     // Get an array of the options' keys and find the first one that matches the answer's value
-    const findAnswer = Object.keys(questions[currentNum].options).find(answerKey);
-    const answer = questions[currentNum].options[findAnswer];
+    var findAnswer = Object.keys(questions[currentNum].options).find(answerKey);
+    var answer = questions[currentNum].options[findAnswer];
 
     return answer;
 }
 
 // Check their answer and show correct or incorrect message
-const selectAnswerHandler = function(event) {
+var selectAnswerHandler = function(event) {
     setTimeout(function() {
         quizResult.classList.add("fade");
     }, 800);
@@ -156,7 +155,7 @@ const selectAnswerHandler = function(event) {
 }
 
 // Show the high score
-const highScoreInitials = function() {
+var highScoreInitials = function() {
     answerContainer.classList.add("hidden");
     initialsContainer.classList.remove("hidden");
     finalScore.textContent = `Your final score is ${score}`;
@@ -164,16 +163,16 @@ const highScoreInitials = function() {
 }
 
 // Create the elements
-const createHighScoreEl = function(scoreObject) {
+var createHighScoreEl = function(scoreObject) {
 
-    const scoreItemEl = document.createElement("li");
+    var scoreItemEl = document.createElement("li");
     scoreItemEl.className = "score-item";
     scoreItemEl.className = "score-list-item";
 
-    const scoreInitialsEl = document.createElement("div");
+    var scoreInitialsEl = document.createElement("div");
     scoreInitialsEl.innerHTML = "<p>" + scoreObject.name + "</p>";
 
-    const scoreNumberEl = document.createElement("div");
+    var scoreNumberEl = document.createElement("div");
     scoreNumberEl.innerHTML = "<p>" + scoreObject.score + "</p>";
 
     scoreList.appendChild(scoreItemEl);
@@ -188,12 +187,12 @@ const createHighScoreEl = function(scoreObject) {
 }
 
 // Save to local storage
-const saveScores = function() {
+var saveScores = function() {
     localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
 // Loads scores from local storage
-const loadScores = function() {
+var loadScores = function() {
     let savedScores = localStorage.getItem("highScores");
 
     // Sets to empty if scores is null
@@ -208,10 +207,10 @@ const loadScores = function() {
 }
 
 // Handle form submission
-const highScoreHandler = function() {
-    const initialsValue = initialsInput.value;
+var highScoreHandler = function() {
+    var initialsValue = initialsInput.value;
 
-    const highScoreObject = {
+    var highScoreObject = {
         name: initialsValue,
         score: score
     };
@@ -220,7 +219,7 @@ const highScoreHandler = function() {
     createHighScoreEl(highScoreObject);
 
     navigation.classList.add("hidden");
-    const backButton = document.createElement("button");
+    var backButton = document.createElement("button");
     backButton.textContent = "Go back";
     backButton.classList.add("primary-button");
     scoreContainer.appendChild(backButton);
@@ -232,7 +231,7 @@ const highScoreHandler = function() {
 }
 
 // Reset the quiz
-const reset = function() {
+var reset = function() {
     score = 0;
     currentNum = 0;
     seconds = 60;
